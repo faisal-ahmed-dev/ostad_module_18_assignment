@@ -27,7 +27,7 @@ const NavLayout = () => {
                         <NavLink to="/product-lists" className="active"><FcSoundRecordingCopyright/> Product List</NavLink>
                     </li>
                     <li>
-                        <NavLink target='_blank' to="http://localhost:5173/"  className="active"><FcAddressBook /> Website</NavLink>
+                        <NavLink target='_blank' to="http://localhost:5173/"  className="active"><FcAddressBook /> Website View</NavLink>
                     </li>
 
                     <li>
