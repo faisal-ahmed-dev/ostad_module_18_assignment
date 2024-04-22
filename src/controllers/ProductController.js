@@ -170,6 +170,7 @@ exports.updateProduct=async(req,res)=>{
     try {
         const { id } = req.params;
         let {product_name,brand_id,product_price,discount_type,discount,product_image,product_detail}=req.body;
+         let total = product_price;
         if (discount_type === 'percentage' && discount) {
             if (discount <= 100) { // Ensure discount percentage is within range
                 const discountAmount = (discount / 100) * product_price; // Calculate discount amount
