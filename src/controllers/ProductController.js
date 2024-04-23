@@ -5,17 +5,16 @@ exports.createProduct=async(req,res)=>{
         let total = product_price;
 
         
-        // ===Check if discount is applied=====//
 
         if (discount_type === 'percentage' && discount) {
-            if (discount <= 100) { // Ensure discount percentage is within range
-                const discountAmount = (discount / 100) * product_price; // Calculate discount amount
-                total = product_price - discountAmount; // Apply percentage discount
+            if (discount <= 100) { 
+                const discountAmount = (discount / 100) * product_price; 
+                total = product_price - discountAmount;
             } else {
                 throw new Error("Discount percentage must be between 0 and 100.");
             }
         } else if (discount_type === 'flat' && discount) {
-            total = product_price - discount; // Apply flat-rate discount
+            total = product_price - discount; 
         }else{
             total=""
         }
@@ -32,14 +31,12 @@ exports.createProduct=async(req,res)=>{
         const product = await ProductModel.create(newProduct);
         return res.json({status:"success",message:"Product created successfully",data:product})
 
-        //console.log(dataBody.product_name)
         
     }catch(error){
         return res.json({error:error.message||"Internal Server Error"})
     }
 }
 
-// ====Read Product Data====//
 exports.readProduct=async(req,res)=>{
     try{
 
